@@ -7,36 +7,3 @@
 <div id="player"></div>
 <a href="#" id="test">Test</a>
 
-<script>
-(function() {
-  var firstScriptTag, onYouTubePlayerAPIReady, player, tag;
-
-  player = null;
-
-  tag = document.createElement("script");
-
-  tag.src = "http://www.youtube.com/player_api";
-
-  firstScriptTag = document.getElementsByTagName("script")[0];
-
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  onYouTubePlayerAPIReady = function() {
-    return player = new YT.Player("player", {
-      height: "390",
-      width: "640",
-      videoId: "u1zgFlCw8Aw"
-    });
-  };
-
-  $(window).load(function() {
-    console.log("ovossss");
-    return jQuery("#test").click(function() {
-      console.log(player);
-      player.seekTo(25);
-      return false;
-    });
-  });
-
-}).call(this);
-</script>
