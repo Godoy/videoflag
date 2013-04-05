@@ -1,33 +1,28 @@
-	<% unless current_user %>
+<% unless current_user %>
 	<div class="jumbotron">
-		<h1>Sign up now and flag yours videos!</h1>
-		<p class="lead">Efetue seu login pelo Facebook e comece a usar a ferramenta.</p>
+		<h1>Sign up now and flag your videos!</h1>
+		<p class="lead">A simple way to index and browse the contents of your favorite videos.</p>
 
 		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'btn btn-large btn-success' %>
 	</div>
 
 
-	<% else %>
+<% else %>
 
-<div class="tabbable tabs-right">
-  <ul class="nav nav-tabs">
-	<li><a href="javascript: void(0);" data-time="223" class="seek-to">Criando nova aplicação no Rails</a></li>
-	<li><a href="javascript: void(0);" data-time="500" class="seek-to">Apresentação da estrutura de pastas do Rails</a></li>
-	<li><a href="javascript: void(0);" data-time="815" class="seek-to">Modificar Gemfile para permitir deploy no Heroku</a></li>
-	<li>
+	<div class="tabbable tabs-right">
+		<h2>iOS - Aula Zero</h2>
+		<ul class="nav nav-tabs">
+			<li><a href="javascript: void(0);" data-time="223" class="seek-to">Criando nova aplicação no Rails</a></li>
+			<li><a href="javascript: void(0);" data-time="500" class="seek-to">Apresentação da estrutura de pastas do Rails</a></li>
+			<li><a href="javascript: void(0);" data-time="815" class="seek-to">Modificar Gemfile para permitir deploy no Heroku</a></li>
+			<li><a href="javascript: void(0);" data-time="965" class="seek-to" data-toggle="popover" data-placement="bottom" data-content="Facilita herança. Meio inútil, e deixa a programação viciada desnecessariamente">Apresentação da gem inherinted_resources</a></li>
+			<li><a href="javascript: void(0);" data-time="1048" class="seek-to" rel="tooltip" title="Permite o controle de usuários, login e integração com Facebook">Apresentação da gem devise</a></li>
+			<li><a href="javascript: void(0);" data-time="1095" class="seek-to">Apresentação da gem rails_admin</a></li>
 
-<a href="javascript: void(0);" data-time="965" class="seek-to" data-toggle="popover" data-placement="bottom" data-content="Facilita herança. Meio inútil, e deixa a programação viciada desnecessariamente">Apresentação da gem inherinted_resources</a></li>
-	<li><a href="javascript: void(0);" data-time="1048" class="seek-to" rel="tooltip" title="Permite o controle de usuários, login e integração com Facebook">Apresentação da gem devise</a></li>
-	<li><a href="javascript: void(0);" data-time="1095" class="seek-to">Apresentação da gem rails_admin</a></li>
-
-	<li><input type="text" /></li>
-  </ul>
-  <div class="tab-content">
-<div id="player"></div>
-  </div>
-</div>
-
-
-
-
-	<% end %>      
+			<li><input type="text" /></li>
+		</ul>
+		<div class="tab-content">
+			<div id="player"></div>
+		</div>
+	</div>
+<% end %>      
