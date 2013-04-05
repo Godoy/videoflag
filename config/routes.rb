@@ -1,7 +1,16 @@
 Videoflags::Application.routes.draw do
-  devise_for :users
 
   get "pages/home"
+
+
+
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_scope :user do
+    delete "/users/sign_out" => "devise/sessions#destroy", :as => :signout  
+  end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

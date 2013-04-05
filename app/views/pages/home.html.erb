@@ -1,3 +1,21 @@
+<% unless current_user %>
+      <div class="jumbotron">
+        <h1>Sign up now and flag yours videos!</h1>
+        <p class="lead">Efetue seu login pelo Facebook e comece a usar a ferramenta.</p>
 
-<div id="player"></div>
-<a href="#" id="test">Test</a>
+        <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'btn btn-large btn-success' %>
+      </div>
+
+
+<% else %>
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <div id="player"></div>
+        </div>
+
+        <div class="span6">
+          <a href="#" id="test">Test</a>
+        </div>
+      </div>
+
+<% end %>      

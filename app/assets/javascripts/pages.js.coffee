@@ -15,5 +15,5 @@ $ ->
 
 window.onYouTubePlayerAPIReady = 
 	-> 
-		player = new YT.Player("player", height: "390", width: "640", videoId: "XYsbf7o2z_E")
+		player = new YT.Player("player", height: "281", width: "500", videoId: "XYsbf7o2z_E")
 		false
