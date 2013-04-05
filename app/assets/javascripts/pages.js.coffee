@@ -7,13 +7,11 @@ firstScriptTag.parentNode.insertBefore tag, firstScriptTag
 player = null
 
 $ ->
-	jQuery("#test").click ->
-		console.log player
-		player.seekTo 25
+	jQuery(".seek-to").click ->
+		player.seekTo $(this).attr('data-time')
 		player.playVideo()
 		false
 
-window.onYouTubePlayerAPIReady = 
-	-> 
+window.onYouTubePlayerAPIReady = -> 
 		player = new YT.Player("player", height: "281", width: "500", videoId: "XYsbf7o2z_E")
 		false
