@@ -3,7 +3,7 @@ class CreateFlags < ActiveRecord::Migration
     create_table :flags do |t|
       t.string :title
       t.text :description
-      t.int :seconds
+      t.integer :seconds
       t.references :video
 
       t.timestamps
