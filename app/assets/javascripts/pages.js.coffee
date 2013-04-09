@@ -14,6 +14,14 @@ $ ->
 
 	$("[data-toggle=popover]").popover({trigger:'hover'});
 
+
+	$("#pause-flag").click ->
+		player.pauseVideo()
+
+	$("#modalFlag").on "hidden", ->
+		player.playVideo()
+		
+	
 window.onYouTubePlayerAPIReady = -> 
 		player = new YT.Player("player", height: "281", width: "500", videoId: "XYsbf7o2z_E")
 		false

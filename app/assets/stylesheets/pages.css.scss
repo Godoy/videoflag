@@ -42,3 +42,12 @@
       .marketing p + h4 {
         margin-top: 28px;
       }
+
+      .right-alert {
+        position: fixed;
+        bottom: 25%;
+        right: 0;
+        margin-bottom: 0;
+        font-size: 1.2em;
+        padding: 1em 1.3em;
+      }
