@@ -21,7 +21,7 @@ class VideosController < ApplicationController
   # GET /video/1.json
   def show
     @video = Video.find(params[:id])
-
+    @flag = Flag.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @video }

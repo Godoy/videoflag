@@ -2,41 +2,13 @@
 		
 
 		<ul class="nav nav-tabs">
+			<% @video.flags.each do |t| %>
 			<li>
-				<a href="javascript: void(0);" data-time="223" class="seek-to">
-					<span class="label label-warning">03:43</span> Criando nova aplicação no Rails 
+				<a href="javascript: void(0);" data-time="<%=t.seconds%>" class="seek-to">
+					<span class="label label-warning"><%=t.seconds_formatted%></span> <%=t.title%>
 				</a>
 			</li>
-
-			<li>
-				<a href="javascript: void(0);" data-time="500" class="seek-to">
-					<span class="label label-warning">08:20</span> Apresentação da estrutura de pastas do Rails
-				</a>
-			</li>
-
-			<li>
-				<a href="javascript: void(0);" data-time="815" class="seek-to">
-					<span class="label label-warning">13:35</span> Modificar Gemfile para permitir deploy no Heroku
-				</a>
-			</li>
-
-			<li>
-				<a href="javascript: void(0);" data-time="965" class="seek-to" data-toggle="popover" data-placement="bottom" data-content="Facilita herança. Meio inútil, e deixa a programação viciada desnecessariamente">
-					<span class="label label-warning">16:05</span> Apresentação da gem inherinted_resources
-				</a>
-			</li>
-
-			<li>
-				<a href="javascript: void(0);" data-time="1048" class="seek-to" rel="tooltip" title="Permite o controle de usuários, login e integração com Facebook">
-					<span class="label label-warning">17:28</span> Apresentação da gem devise
-				</a>
-			</li>
-
-			<li>
-				<a href="javascript: void(0);" data-time="1095" class="seek-to">
-					<span class="label label-warning">18:15</span> Apresentação da gem rails_admin
-				</a>
-			</li>
+			<% end %>
 		</ul>
 
 
@@ -48,15 +20,18 @@
 	</div>
 
 <!-- Modal -->
-<div id="modalFlag" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modalFlag" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalFlagLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Flag at 0:03:15</h3>
+    <h3 id="modalFlagLabel">Flag at 0:03:15</h3>
   </div>
   <div class="modal-body">
-  	
-    <input class="span5" type="text" placeholder="What?">
-    <input type="submit" class="btn btn-primary" value="Flag">
+  	<%= form_for @flag, :html => { :class => 'form-horizontal' } do |f| %>
+    	<%= f.hidden_field :video_id, :value => @video.id %>
+    	<%= f.hidden_field :seconds %>
+    	<%= f.text_field :title, :class => 'text_field span5', :placeholder => "What?" %>
+    	<input type="submit" class="btn btn-primary" value="Flag">
+    <% end %>
   </div>
 
 </div>

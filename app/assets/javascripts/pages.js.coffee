@@ -14,14 +14,14 @@ $ ->
 		false
 
 
-
 	$("[data-toggle=popover]").popover({trigger:'hover'});
 
 
 	$("#pause-flag").click ->
 		player.pauseVideo()
-		player.getCurrentTime()
-		console.log player.getCurrentTime().toHHMMSS()
+		$("#flag_seconds").val(player.getCurrentTime())
+		$("#modalFlagLabel").html "Flag at "+player.getCurrentTime().toHHMMSS()
+		
 
 	$("#modalFlag").on "hidden", ->
 		player.playVideo()
