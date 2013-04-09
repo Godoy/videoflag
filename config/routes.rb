@@ -5,7 +5,7 @@ Videoflags::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get "pages/home"
-
+  get "pages/example"
 
 
 
@@ -14,7 +14,7 @@ Videoflags::Application.routes.draw do
     delete "/users/sign_out" => "devise/sessions#destroy", :as => :signout  
   end
 
-
+  resources :videos, :flags
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

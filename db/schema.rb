@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130409181416) do
   create_table "videos", :force => true do |t|
     t.string   "name"
     t.string   "url"
+    t.string   "videoId"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
