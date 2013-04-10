@@ -14,28 +14,31 @@
 
 		<div class="tab-content">
 			
-<div class="video-container">
-        <div id="player" data-id="<%= @video.videoId %>"></div>
-</div>
-			<% if user_signed_in? %>
+			<div class="video-container">
+			    <div id="player" data-id="<%= @video.videoId %>"></div>
+			</div>
+
+			<% if @user_owner %>
 				<a href="#modalFlag" role="button" data-toggle="modal" class="btn btn-large btn-danger" id="pause-flag">Flag!</a>
 			<% end %>
 		</div>
 	</div>
 
-<!-- Modal -->
-<div id="modalFlag" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalFlagLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="modalFlagLabel">Flag at 0:03:15</h3>
-  </div>
-  <div class="modal-body">
-  	<%= form_for @flag, :html => { :class => 'form-horizontal' } do |f| %>
-    	<%= f.hidden_field :video_id, :value => @video.id %>
-    	<%= f.hidden_field :seconds %>
-    	<%= f.text_field :title, :class => 'text_field span5', :placeholder => "What?" %>
-    	<input type="submit" class="btn btn-primary" value="Flag">
-    <% end %>
-  </div>
+<% if @user_owner %>
+	<!-- Modal create Flag -->
+	<div id="modalFlag" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalFlagLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="modalFlagLabel">Flag at 0:03:15</h3>
+	  </div>
+	  <div class="modal-body">
+	  	<%= form_for @flag, :html => { :class => 'form-horizontal' } do |f| %>
+	    	<%= f.hidden_field :video_id, :value => @video.id %>
+	    	<%= f.hidden_field :seconds %>
+	    	<%= f.text_field :title, :class => 'text_field span5', :placeholder => "What?" %>
+	    	<input type="submit" class="btn btn-primary" value="Flag">
+	    <% end %>
+	  </div>
 
-</div>
+	</div>
+<% end %>

@@ -21,7 +21,13 @@ class VideosController < ApplicationController
   # GET /video/1.json
   def show
     @video = Video.find(params[:id])
-    @flag = Flag.new
+    
+
+    if user_signed_in?
+      @flag = Flag.new
+      @user_owner = current_user.videos.exists? @video
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @video }

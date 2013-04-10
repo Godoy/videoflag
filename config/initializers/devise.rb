@@ -217,8 +217,14 @@ Devise.setup do |config|
 
 
   require "omniauth-facebook"
-  config.omniauth :facebook, "528662413851355", "27fa42ec28fbe25a2dfcbe4826b9a061", 
-    {:scope => 'email, offline_access', :display => 'popup', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+  if Rails.env.production?
+    config.omniauth :facebook, "528662413851355", "27fa42ec28fbe25a2dfcbe4826b9a061", 
+      {:scope => 'email, offline_access', :display => 'popup', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+  else
+    config.omniauth :facebook, "495187303861701", "622e7eb0d3a32efb5a8cee91ba925950", 
+      {:scope => 'email, offline_access', :display => 'popup', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+  end
+
 
 
   # ==> Warden configuration
