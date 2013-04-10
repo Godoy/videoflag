@@ -13,8 +13,10 @@
 
 
 		<div class="tab-content">
-			<div id="player" data-id="<%= @video.videoId %>"></div>
-
+			
+<div class="video-container">
+        <div id="player" data-id="<%= @video.videoId %>"></div>
+</div>
 			<% if user_signed_in? %>
 				<a href="#modalFlag" role="button" data-toggle="modal" class="btn btn-large btn-danger" id="pause-flag">Flag!</a>
 			<% end %>

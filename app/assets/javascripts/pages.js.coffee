@@ -28,5 +28,5 @@ $ ->
 		
 	
 window.onYouTubePlayerAPIReady = -> 
-	player = new YT.Player("player", height: "281", width: "500", videoId: $("#player").attr("data-id"))
+	player = new YT.Player("player", height: "315", width: "560", videoId: $("#player").attr("data-id"))
 	false
